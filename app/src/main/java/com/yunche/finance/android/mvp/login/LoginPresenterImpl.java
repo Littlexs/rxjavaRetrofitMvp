@@ -19,7 +19,7 @@ public class LoginPresenterImpl implements LoginConstract.LoginPresenter,LoginCo
         if (loginView!=null){
             loginView.showLoading();
         }
-        loginInteractor.login(name,passWord,this);
+        loginInteractor.login(name,passWord,this,loginView.bindLifecycle());
     }
 
     @Override

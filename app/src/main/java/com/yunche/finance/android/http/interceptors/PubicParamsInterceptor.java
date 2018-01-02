@@ -13,8 +13,8 @@ import okhttp3.Response;
 
 public class PubicParamsInterceptor implements Interceptor {
       
-        @SuppressWarnings("deprecation")  
-        @Override  
+        @SuppressWarnings("deprecation")
+        @Override
         public Response intercept(Chain chain) throws IOException {
       
             Request request = chain.request();
@@ -25,10 +25,10 @@ public class PubicParamsInterceptor implements Interceptor {
             Map<String, Object> globalParams = new HashMap<>();//这里是我们的公共参数，根据项目实际情况获得，具体添加什么样的参数，在这里做逻辑判断即可
             Iterator it = globalParams.entrySet().iterator();
             while (it.hasNext()) {  
-                Map.Entry entry = (Map.Entry) it.next();  
+                Map.Entry entry = (Map.Entry) it.next();
                 //如果是中文/其他字符，会直接把字符串用BASE64加密，  
                 String s = URLDecoder.decode(String.valueOf(entry.getValue()));
-                authorizedUrlBuilder.addQueryParameter((String) entry.getKey(), s);  
+                authorizedUrlBuilder.addQueryParameter((String) entry.getKey(), s);
             }  
             //生成新的请求
             Request newrequest = request.newBuilder()  

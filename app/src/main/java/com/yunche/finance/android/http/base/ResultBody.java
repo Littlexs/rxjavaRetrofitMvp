@@ -8,6 +8,7 @@ public class ResultBody<T> {
     private int code;
     private String msg;
     private boolean isSuccess;
+    private T result;
 
     public boolean isSuccess() {
         return isSuccess;
@@ -16,8 +17,6 @@ public class ResultBody<T> {
     public void setSuccess(boolean success) {
         isSuccess = success;
     }
-
-    private T result;
 
     public int getCode() {
         return code;
